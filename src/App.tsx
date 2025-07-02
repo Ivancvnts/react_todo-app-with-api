@@ -192,13 +192,11 @@ export const App: React.FC = () => {
 
   const filterTodosByStatus = () => {
     return todosFromServer.filter(todo => {
-      const isUpdating = updatedTodos.includes(todo.id);
-
       switch (filter) {
         case 'active':
-          return !todo.completed || isUpdating;
+          return !todo.completed;
         case 'completed':
-          return todo.completed || isUpdating;
+          return todo.completed;
         default:
           return true;
       }
